@@ -1,6 +1,14 @@
 <template>
   <div class="part" :class="position">
+    <router-link :to="{
+        name: 'Parts',
+        params: {
+          id: this.selectedPart.id,
+          partType: this.selectedPart.type,
+        },
+      }">
     <img :src="selectedPart.src" title="arm"/>
+    </router-link>
     <button @click="selectPreviousPart()" class="prev-selector"></button>
     <button @click="selectNextPart()" class="next-selector"></button>
     <span class="sale" v-show="selectedPart.onSale">Sale!</span>
@@ -93,8 +101,9 @@ export default {
   padding-top: 5px;
   top: -25px;
 }
-.part img {
+ .part img {
   width:165px;
+  cursor: pointer;
 }
 .top {
   border-bottom: none;
