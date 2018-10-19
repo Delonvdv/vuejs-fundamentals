@@ -23,6 +23,7 @@
         </tr>
       </tbody>
     </table>
+    <div v-if="(cartSaleItems.length > 0)">
     <h2 class="saleItems">You saved money</h2>
     <table>
       <thead>
@@ -46,6 +47,7 @@
         </tr>
       </tbody>
     </table>
+    </div>
  </div>
 </template>
 
@@ -54,10 +56,10 @@ export default {
   name: 'Cart',
   computed: {
     cart() {
-      return this.$store.state.cart;
+      return this.$store.state.robots.cart;
     },
     cartSaleItems() {
-      return this.$store.getters.cartSaleItems;
+      return this.$store.getters['robots/cartSaleItems'];
     },
   },
 };
